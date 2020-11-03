@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var formaConfig: Forma.Config!
+    var formaConfig: FormaConfig!
+    var forma: Forma!
+    var drawing = CAShapeLayer()
     
     @IBOutlet weak var simpleLabel: UILabel!
     @IBOutlet weak var complexLabel: UILabel!
@@ -21,6 +23,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupLabels()
         setupTap()
+        setupForma()
+    }
+
+    
+    func setupForma() {
+        let xPercentage = Int.random(in: 0..<100)
+        let yPercentage = Int.random(in: 0..<100)
+        
+        formaConfig = FormaConfig(simplicity: 100 - yPercentage,
+                                   complexity: yPercentage,
+                                   roundness: xPercentage,
+                                   sharpness: 100 - xPercentage)
+        
+        forma = Forma(position: self.view.center, size: 50, config: formaConfig)
     }
 
     
@@ -43,10 +59,16 @@ class ViewController: UIViewController {
             let xPercentage = touchPoint.x.getPercentage(from: view.frame.width)
             let yPercentage = touchPoint.y.getPercentage(from: view.frame.height)
             
-            formaConfig = Forma.Config(simplicity: 100 - yPercentage, complexity: yPercentage, roundness: xPercentage, sharpness: 100 - xPercentage)
+            formaConfig = FormaConfig(simplicity: 100 - yPercentage,
+                                       complexity: yPercentage,
+                                       roundness: xPercentage,
+                                       sharpness: 100 - xPercentage)
+            forma.make()
+            drawForma()
             updateLabels()
         }
     }
+    
     
     func updateLabels() {
         simpleLabel.text = "SIMPLE: \(formaConfig.simplicity)"
@@ -55,6 +77,40 @@ class ViewController: UIViewController {
         roundLabel.text = "ROUND: \(formaConfig.roundness)"
     }
     
+    func drawForma() {
+        if !forma.points.isEmpty {
+            self.drawing.removeFromSuperlayer()
+            
+            let shapeLayer = CAShapeLayer()
+            
+            let path = UIBezierPath(points: forma.points)
+            shapeLayer.path = path.cgPath
+            shapeLayer.strokeColor = UIColor.red.cgColor
+            shapeLayer.lineWidth = 2
+            shapeLayer.fillColor = nil
+            
+            drawing = shapeLayer
+            
+            self.view.layer.addSublayer(drawing)
+        }
+    }
+    
     
 }
 
+
+
+extension UIBezierPath {
+    convenience init(points:[CGPoint]) {
+        self.init()
+
+        for (index, aPoint) in points.enumerated() {
+            if index == 0 {
+                self.move(to: aPoint)
+            }
+            else {
+                self.addLine(to: aPoint)
+            }
+        }
+    }
+}

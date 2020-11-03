@@ -14,6 +14,8 @@
 		3A8E9CA32551501D007E2329 /* Forma.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A8E9CA12551501D007E2329 /* Forma.xcdatamodeld */; };
 		3A8E9CA52551501E007E2329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A8E9CA42551501E007E2329 /* Assets.xcassets */; };
 		3A8E9CA82551501E007E2329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8E9CA62551501E007E2329 /* LaunchScreen.storyboard */; };
+		3A8E9CB3255158E2007E2329 /* CalculatePercentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8E9CB2255158E2007E2329 /* CalculatePercentage.swift */; };
+		3A8E9CBA2551809F007E2329 /* Forma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8E9CB92551809F007E2329 /* Forma.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		3A8E9CA42551501E007E2329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A8E9CA72551501E007E2329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A8E9CA92551501E007E2329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A8E9CB2255158E2007E2329 /* CalculatePercentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatePercentage.swift; sourceTree = "<group>"; };
+		3A8E9CB92551809F007E2329 /* Forma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forma.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +62,11 @@
 		3A8E9C972551501D007E2329 /* Forma */ = {
 			isa = PBXGroup;
 			children = (
+				3A8E9CB1255158B2007E2329 /* Utils */,
+				3A8E9CB92551809F007E2329 /* Forma.swift */,
+				3A8E9C9C2551501D007E2329 /* ViewController.swift */,
 				3A8E9C982551501D007E2329 /* AppDelegate.swift */,
 				3A8E9C9A2551501D007E2329 /* SceneDelegate.swift */,
-				3A8E9C9C2551501D007E2329 /* ViewController.swift */,
 				3A8E9C9E2551501D007E2329 /* Main.storyboard */,
 				3A8E9CA42551501E007E2329 /* Assets.xcassets */,
 				3A8E9CA62551501E007E2329 /* LaunchScreen.storyboard */,
@@ -68,6 +74,14 @@
 				3A8E9CA12551501D007E2329 /* Forma.xcdatamodeld */,
 			);
 			path = Forma;
+			sourceTree = "<group>";
+		};
+		3A8E9CB1255158B2007E2329 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3A8E9CB2255158E2007E2329 /* CalculatePercentage.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +156,8 @@
 			files = (
 				3A8E9C9D2551501D007E2329 /* ViewController.swift in Sources */,
 				3A8E9C992551501D007E2329 /* AppDelegate.swift in Sources */,
+				3A8E9CB3255158E2007E2329 /* CalculatePercentage.swift in Sources */,
+				3A8E9CBA2551809F007E2329 /* Forma.swift in Sources */,
 				3A8E9C9B2551501D007E2329 /* SceneDelegate.swift in Sources */,
 				3A8E9CA32551501D007E2329 /* Forma.xcdatamodeld in Sources */,
 			);
@@ -300,7 +316,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Forma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -319,7 +335,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Forma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

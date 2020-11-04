@@ -10,9 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var formaConfig: FormaConfig!
     var forma: Forma!
-    var drawing = CAShapeLayer()
     
     @IBOutlet weak var simpleLabel: UILabel!
     @IBOutlet weak var complexLabel: UILabel!
@@ -31,12 +29,11 @@ class ViewController: UIViewController {
         let xPercentage = Int.random(in: 0..<100)
         let yPercentage = Int.random(in: 0..<100)
         
-        formaConfig = FormaConfig(simplicity: 100 - yPercentage,
-                                   complexity: yPercentage,
+        forma = Forma(position: self.view.center, size: 50)
+        forma.config = FormaConfig(simplicity: yPercentage,
+                                   complexity: 100 - yPercentage,
                                    roundness: xPercentage,
                                    sharpness: 100 - xPercentage)
-        
-        forma = Forma(position: self.view.center, size: 50, config: formaConfig)
     }
 
     
@@ -59,58 +56,26 @@ class ViewController: UIViewController {
             let xPercentage = touchPoint.x.getPercentage(from: view.frame.width)
             let yPercentage = touchPoint.y.getPercentage(from: view.frame.height)
             
-            formaConfig = FormaConfig(simplicity: 100 - yPercentage,
-                                       complexity: yPercentage,
+            forma.config = FormaConfig(simplicity: yPercentage,
+                                       complexity: 100 - yPercentage,
                                        roundness: xPercentage,
                                        sharpness: 100 - xPercentage)
+            
             forma.make()
-            drawForma()
+            forma.draw(on: view)
             updateLabels()
         }
     }
     
     
     func updateLabels() {
-        simpleLabel.text = "SIMPLE: \(formaConfig.simplicity)"
-        complexLabel.text = "COMPLEX: \(formaConfig.complexity)"
-        sharpLabel.text = "SHARP: \(formaConfig.sharpness)"
-        roundLabel.text = "ROUND: \(formaConfig.roundness)"
+        simpleLabel.text = "SIMPLE: \(forma.config.simplicity)%"
+        complexLabel.text = "COMPLEX: \(forma.config.complexity)%"
+        sharpLabel.text = "SHARP: \(forma.config.sharpness)%"
+        roundLabel.text = "ROUND: \(forma.config.roundness)%"
     }
-    
-    func drawForma() {
-        if !forma.points.isEmpty {
-            self.drawing.removeFromSuperlayer()
-            
-            let shapeLayer = CAShapeLayer()
-            
-            let path = UIBezierPath(points: forma.points)
-            shapeLayer.path = path.cgPath
-            shapeLayer.strokeColor = UIColor.red.cgColor
-            shapeLayer.lineWidth = 2
-            shapeLayer.fillColor = nil
-            
-            drawing = shapeLayer
-            
-            self.view.layer.addSublayer(drawing)
-        }
-    }
-    
+
     
 }
 
 
-
-extension UIBezierPath {
-    convenience init(points:[CGPoint]) {
-        self.init()
-
-        for (index, aPoint) in points.enumerated() {
-            if index == 0 {
-                self.move(to: aPoint)
-            }
-            else {
-                self.addLine(to: aPoint)
-            }
-        }
-    }
-}

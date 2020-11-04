@@ -17,6 +17,8 @@
 		3A8E9CBA2551809F007E2329 /* Forma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8E9CB92551809F007E2329 /* Forma.swift */; };
 		3ADD2F4325519C7F00E29BF7 /* FormaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD2F4225519C7F00E29BF7 /* FormaConfig.swift */; };
 		3ADD2F462551A1AC00E29BF7 /* MapFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD2F452551A1AC00E29BF7 /* MapFunction.swift */; };
+		3ADD2F492551AFDB00E29BF7 /* SeededGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD2F482551AFDB00E29BF7 /* SeededGenerator.swift */; };
+		3ADD2F4D2551C91500E29BF7 /* UIBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADD2F4C2551C91500E29BF7 /* UIBezierPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		3A8E9CB92551809F007E2329 /* Forma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forma.swift; sourceTree = "<group>"; };
 		3ADD2F4225519C7F00E29BF7 /* FormaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormaConfig.swift; sourceTree = "<group>"; };
 		3ADD2F452551A1AC00E29BF7 /* MapFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFunction.swift; sourceTree = "<group>"; };
+		3ADD2F482551AFDB00E29BF7 /* SeededGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededGenerator.swift; sourceTree = "<group>"; };
+		3ADD2F4C2551C91500E29BF7 /* UIBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 		3A8E9C972551501D007E2329 /* Forma */ = {
 			isa = PBXGroup;
 			children = (
+				3ADD2F4B2551C8F200E29BF7 /* Extensions */,
 				3A8E9CB1255158B2007E2329 /* Utils */,
 				3A8E9CB92551809F007E2329 /* Forma.swift */,
 				3ADD2F4225519C7F00E29BF7 /* FormaConfig.swift */,
@@ -83,8 +88,17 @@
 			children = (
 				3A8E9CB2255158E2007E2329 /* CalculatePercentage.swift */,
 				3ADD2F452551A1AC00E29BF7 /* MapFunction.swift */,
+				3ADD2F482551AFDB00E29BF7 /* SeededGenerator.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		3ADD2F4B2551C8F200E29BF7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3ADD2F4C2551C91500E29BF7 /* UIBezierPath.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +173,8 @@
 				3ADD2F462551A1AC00E29BF7 /* MapFunction.swift in Sources */,
 				3A8E9C9D2551501D007E2329 /* ViewController.swift in Sources */,
 				3A8E9C992551501D007E2329 /* AppDelegate.swift in Sources */,
+				3ADD2F4D2551C91500E29BF7 /* UIBezierPath.swift in Sources */,
+				3ADD2F492551AFDB00E29BF7 /* SeededGenerator.swift in Sources */,
 				3A8E9CB3255158E2007E2329 /* CalculatePercentage.swift in Sources */,
 				3A8E9CBA2551809F007E2329 /* Forma.swift in Sources */,
 				3ADD2F4325519C7F00E29BF7 /* FormaConfig.swift in Sources */,

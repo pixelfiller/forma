@@ -8,7 +8,7 @@
 import UIKit
 
 extension CGFloat {
-    func getPercentage(from value: CGFloat) -> Int {
-        return Int((100.0 * self) / value)
+    func percentage(from value: CGFloat) -> CGFloat {
+        return (100.0 * self) / value
     }
 }
